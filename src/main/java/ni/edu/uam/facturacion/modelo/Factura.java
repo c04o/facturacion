@@ -49,4 +49,7 @@ public class Factura {
     @ListProperties("producto.numero, producto.descripcion, cantidad")
     Collection<Detalle> detalles;
 
+    @ManyToOne(fetch=FetchType.LAZY, optional=false)
+    @ReferenceView("Simple") // La vista llamada 'Simple' se usará para visualizar esta referencia
+    Cliente cliente;
 }
