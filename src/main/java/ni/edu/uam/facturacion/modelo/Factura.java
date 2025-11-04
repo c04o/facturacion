@@ -1,6 +1,7 @@
 package ni.edu.uam.facturacion.modelo;
 
 import java.time.*;
+import java.util.Collection;
 import javax.persistence.*;
 
 import ni.edu.uam.facturacion.calculadores.CalculadorSiguienteNumeroParaAnyo;
@@ -38,6 +39,7 @@ public class Factura {
     String observaciones;
 
     @ElementCollection
+    @ListProperties("producto.numero, producto.descripcion, cantidad")
     Collection<Detalle> detalles;
 
 }
