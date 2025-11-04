@@ -37,5 +37,7 @@ public class Factura {
     @TextArea
     String observaciones;
 
+    @ElementCollection
+    Collection<Detalle> detalles;
 
 }
