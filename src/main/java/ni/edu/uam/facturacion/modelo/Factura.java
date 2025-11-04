@@ -24,6 +24,10 @@ public class Factura {
     int anyo;
 
     @Column(length=6)
+    @DefaultValueCalculator(value= CalculadorSiguienteNumeroParaAnyo.class,
+            properties=@PropertyValue(name="anyo") // Para inyectar el valor de anyo de Factura
+            // en el calculador antes de llamar a calculate()
+    )
     int numero;
 
     @Required
@@ -33,11 +37,5 @@ public class Factura {
     @TextArea
     String observaciones;
 
-    @Column(length=6)
-    @DefaultValueCalculator(value= CalculadorSiguienteNumeroParaAnyo.class,
-            properties=@PropertyValue(name="anyo") // Para inyectar el valor de anyo de Factura
-            // en el calculador antes de llamar a calculate()
-    )
-    int numero;
 
 }
